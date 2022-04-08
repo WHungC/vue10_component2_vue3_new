@@ -1,5 +1,6 @@
 <template>
 	<li>
+		<h2>props current==>{{current}}</h2>
 		<h2>{{ id }}-{{isCurrent}}</h2>
 		<button @click="toggleCourseDetail">Show detail</button>
 		<button @click="toggleCurrent">toggle current class</button>
@@ -36,6 +37,7 @@ export default {
 		toggleCurrent(){
 			this.isCurrent = !this.isCurrent;
 			//this.current = !this.current;
+			this.$emit('toggle-current', this.id);
 		}
 	},
 };

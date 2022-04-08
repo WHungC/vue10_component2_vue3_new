@@ -7,6 +7,7 @@
     :name="course.name"
     :duration="course.duration"
     :current="course.current"
+	@toggle-current="toggleCurrentState"
   ></course-intro>
 </template>
 
@@ -19,12 +20,24 @@ export default {
 		HelloWorld,
 	},
 	data() {
-		return { 
+		return {
 			courses: [
 				{ id: "poop", name: "python oop", duration: 35, current: true },
-				{ id: "bdpy", name: "python and big data", duration: 35, current: false },
-			] 
+				{
+					id: "bdpy",
+					name: "python and big data",
+					duration: 35,
+					current: false,
+				},
+			],
 		};
+	},
+	methods: {
+		toggleCurrentState(id) {
+			console.log(`should change id:${id}`);
+			const course = this.courses.find((course) => course.id === id);
+			course.current = ! course.current;
+		},
 	}
 };
 </script>
