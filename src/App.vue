@@ -1,7 +1,13 @@
 <template>
 	<HelloWorld msg="Welcome to Your Vue.js App" />
-	<course-intro :id="course_name1" name="python oop" :duration="35" :current="true"></course-intro>
-	<course-intro :id="course_name2" name="python and big data" :duration="35" :current="false"></course-intro>
+  <course-intro
+    v-for="course in courses"
+    :key="course.id"
+    :id="course.id"
+    :name="course.name"
+    :duration="course.duration"
+    :current="course.current"
+  ></course-intro>
 </template>
 
 <script>
@@ -12,9 +18,14 @@ export default {
 	components: {
 		HelloWorld,
 	},
-  data() {
-    return { course_name1: "POOP", course_name2: "BDPY" };
-  }
+	data() {
+		return { 
+			courses: [
+				{ id: "poop", name: "python oop", duration: 35, current: true },
+				{ id: "bdpy", name: "python and big data", duration: 35, current: false },
+			] 
+		};
+	}
 };
 </script>
 
