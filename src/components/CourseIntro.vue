@@ -15,13 +15,13 @@ export default {
 		id: { type: String, requred: true },
 		name: { type: String, requred: true },
 		duration: {
-			type: String,
+			type: Number,
 			requred: true,
 			validator: function (value) {
 				return parseInt(value) > 7;
 			}
 		}, 
-		current: { type: String, requred: false, default: "false" }
+		current: { type: Boolean, requred: false, default: false }
 	},	//props can't modify value
 	data() {
 		return {
