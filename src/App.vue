@@ -1,5 +1,5 @@
 <template>
-	<new-course></new-course>
+	<new-course @add-course="addCourse"></new-course>
   <course-intro
     v-for="course in courses"
     :key="course.id"
@@ -7,6 +7,7 @@
     :name="course.name"
     :duration="course.duration"
     :current="course.current"
+    @delete-current="delCourse"
   ></course-intro>
 </template>
 
@@ -33,6 +34,15 @@ export default {
       const course = this.courses.find((c) => c.id == idx);
       course.current = !course.current;
     })
+  },
+  methods:{
+    addCourse(id, name, duration){
+      const newCourse = {id:id, name:name, duration:parseInt(duration),current:false}
+      this.courses.push(newCourse)
+    },
+    delCourse(id){
+      this.courses = this.courses.filter((course)=>course.id !== id)
+    }
   }
 };
 </script>

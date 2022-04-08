@@ -1,11 +1,26 @@
 <template>
-  <form>
-    <div><label>id</label><input type="text" /></div>
-    <div><label>name</label><input type="text" /></div>
-    <div><label>duration</label><input type="text" /></div>
-    <button>Add a course</button>
-  </form>
+	<form @submit.prevent="submitData">
+		<div><label>id</label><input type="text" v-model="inputId" /></div>
+		<div><label>name</label><input type="text" v-model="inputName" /></div>
+		<div><label>duration</label><input type="number" v-model="inputDuration" /></div>
+		<button>Add a course</button>
+	</form>
 </template>
 <script>
-export default {};
+export default {
+	emits: ["add-course"],
+	data() {
+		return { inputId: "", inputName: "", inputDuration: "" };
+	},
+	methods: {
+		submitData() {
+			this.$emit(
+				"add-course",
+				this.inputId,
+				this.inputName,
+				this.inputDuration
+			);
+		},
+	},
+};
 </script>
