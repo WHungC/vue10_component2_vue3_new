@@ -1,7 +1,7 @@
 <template>
 	<HelloWorld msg="Welcome to Your Vue.js App" />
-	<course-intro id="poop" name="python oop" duration=35 current=true></course-intro>
-	<course-intro id="bdpy" name="python and big data" duration=35 current=false></course-intro>
+	<course-intro :id="course_name1" name="python oop" :duration="35" :current="true"></course-intro>
+	<course-intro :id="course_name2" name="python and big data" :duration="35" :current="false"></course-intro>
 </template>
 
 <script>
@@ -12,6 +12,9 @@ export default {
 	components: {
 		HelloWorld,
 	},
+  data() {
+    return { course_name1: "POOP", course_name2: "BDPY" };
+  }
 };
 </script>
 
