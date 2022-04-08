@@ -1,5 +1,5 @@
 <template>
-	<HelloWorld msg="Welcome to Your Vue.js App" />
+	<new-course></new-course>
   <course-intro
     v-for="course in courses"
     :key="course.id"
@@ -11,13 +11,8 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
 	name: "App",
-	components: {
-		HelloWorld,
-	},
 	data() {
 		return {
 			courses: [
@@ -56,7 +51,8 @@ export default {
   padding: 0;
   list-style: none;
 }
-#app li {
+#app li,
+#app form {
   box-shadow: 0 4px 8px rgba(0, 0, 128, 0.26);
   margin: 1rem auto;
   padding: 1rem;
