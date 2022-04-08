@@ -12,16 +12,16 @@
 <script>
 export default {
 	props: { 
-		id: { type: String, requred: true },
-		name: { type: String, requred: true },
+		id: { type: String, required: true },
+		name: { type: String, required: true },
 		duration: {
 			type: Number,
-			requred: true,
+			required: true,
 			validator: function (value) {
 				return parseInt(value) > 7;
 			}
 		}, 
-		current: { type: Boolean, requred: false, default: false }
+		current: { type: Boolean, required: false, default: false }
 	},	//props can't modify value
 	data() {
 		return {
